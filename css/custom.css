@@ -2,4 +2,17 @@ body {
   background-color: #3e4649;
 }
 
+main {
+  text-align: center;
+}
+
+img {
+  vertical-align: middle;
+  border-style: none;
+}
+
+.albumCover {
+  width: 60%;
+}
+
 /*# sourceMappingURL=custom.css.map */
