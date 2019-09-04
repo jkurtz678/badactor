@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-146711962-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-146711962-1');
+    </script>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -15,19 +24,36 @@
   <body>
     <div class="container-fluid topbar"> 
       <div class="row text-center">
-        <h1>badactor<h1>
+        <h1 class="stretched">badactor<h1>
         </div>
       </div>
       <main>
         <div class="container">
           <div class="col-12 text-center">
-            <h2>moment's gone</h2>
+            <h2 class="stretched">latest release</h2>
           </div>
           <img class="albumCover" src="images/badactormomentsgone.jpg" alt="momentsgone">
-        </div>
-      </main>
+          <div>
+            <span class="icons">
+              <a href="https://open.spotify.com/album/3ZMbIeHR72dTvEEt5ux6tb?si=jixWGHiaREeVZQmZM1R1fw" title="Spotify" target="_blank">
+              <i class="icon brands fa-spotify"></i></a>
+              <a href="https://music.apple.com/us/album/moments-gone-ep/1462692047" title="AppleMusic" target="_blank">
+              <i class="icon brands fa-itunes"></i></a>
+              <a href="https://www.youtube.com/channel/UCfIBG7EHi0eQBwoVhPs9vcQ" title="AppleMusic" target="_blank">
+              <i class="icon brands fa-youtube"></i></a>
+              <a href="https://badactormusic.bandcamp.com/releases" title="Bandcamp" target="_blank">
+              <i class="icon brands fa-bandcamp"></i></a>
+              <a href="https://www.instagram.com/badactormusic/" title="Instagram" target="_blank">
+              <i class="icon brands fa-instagram"></i></a>
+            </span>
+          </div>
+          <h2 class="stretched">videos</h2>
+          <iframe id="video" title="find me" class="video" src="https://www.youtube.com/embed/sQEsr0wP-K0" width="700" height="400" frameborder="0" allow="encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
+          </div>
 
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-      <script src="js/bootstrap.min.js"></script>
-    </body>
-    </html>
+        </main>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+      </body>
+      </html>
