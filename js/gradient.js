@@ -2,78 +2,100 @@
 console.log(window.innerWidth)
 console.log(window.innerHeight)
 
+var minLight = 95; 
+var lightRange = 20;
 var swingWidth = window.innerWidth;
-var gradY = innerHeight/2;
+var halfwayY = window.innerHeight/2
+var gradY = halfwayY;
+var centerX = swingWidth/2;
+var centerY = window.innerHeight/2;
 
-var horizontalPx = swingWidth*-1;
-var increasing = true;
+
+var gradX = swingWidth*-1;
+var circleBack = false;
+var circleRadius = swingWidth+(swingWidth/2);
+var angle = 0;
+
+console.log("inner height: " + window.innerHeight/2);
+console.log("gradY: " + gradY);
 
 elements = document.getElementsByClassName("shadowAnimated");
-console.log("elements length: " + elements.length);
-
-var style = window.getComputedStyle(elements[2], null).getPropertyValue('font-size');
-var fontSize = parseFloat(style); 
-console.log("fontSize: " + fontSize);
 
 setInterval(function(){
-
-	document.body.style.backgroundImage = 'radial-gradient( at ' + horizontalPx+ 'px 50%, #CD844F 0%, #0B042E 99%)';
-	//document.getElementById("bandname").style.textShadow = (0.02*(horizontalPx-swingWidth/2)*-1) + "px 0 5px #0B042E"
-	//elements[0].style.textShadow = (0.02*(horizontalPx-swingWidth/2)*-1) + "px 0 5px #0B042E"
+	var lightRatio = getLightRatio(swingWidth, gradX)
+	var lightPercentage = (lightRatio*lightRange) + minLight;
+	document.body.style.backgroundImage = 'radial-gradient( at ' + gradX+ 'px '+ gradY +'px, #CD844F 0%, #0B042E '+lightPercentage+'%)';
 	var i;
 	for(i = 0; i < elements.length; i++ ) {
-		addDirectionalShadow(elements[i], horizontalPx, gradY );
+		addDirectionalShadow(elements[i], gradX, gradY, lightRatio );
 	}
-	//addDirectionalShadow(elements[0], horizontalPx, gradY);
-
-	if (horizontalPx > swingWidth*2) {
-		increasing = false;
+	if (gradX > swingWidth*2) {
+		circleBack = true;
+		gradY = halfwayY;
+		angle = 0;
 	}
-	else if (horizontalPx < swingWidth*-1 ) {
-		increasing = true;
+	if (gradY < halfwayY) {
+		circleBack = false;
+		gradY = halfwayY;
 	}
-	if (increasing) {
-		horizontalPx = horizontalPx + 5;
+	if(circleBack) {
+		gradX = centerX + (Math.cos(angle)*circleRadius);
+		gradY = centerY + ((Math.sin(angle)*circleRadius)*0.3);
+		angle = angle + Math.PI/840;
 	}
 	else {
-		horizontalPx = horizontalPx - 5;
+		gradX = gradX + 5;
 	}
+	//console.log("gradX " + gradX);
+	//console.log("gradY " + gradY);
+	//console.log("window inner height " + window.innerHeight/2);
+
+
+	//console.log("is circling back: " + circleBack);
 },10);
 
 
-function addDirectionalShadow(element, lightX, lightY) {
+function addDirectionalShadow(element, lightX, lightY, lightRatio) {
 
 	var rect = element.getBoundingClientRect();
 	var elementX = rect.left + (rect.right-rect.left)/2;
-	var elementY = rect.bottom + (rect.bottom-rect.top)/2;
+	var elementY = rect.top + (rect.bottom-rect.top)/2;
 
 	var style = window.getComputedStyle(element, null).getPropertyValue('font-size');
 	var fontSize = parseFloat(style); 
 
-	//console.log("elementX: " + elementX);
-	//console.log("elementY: " + elementY);
-
-	//console.log("lightX: " + lightX);
-
-	//console.log("lightY: " + lightY);
-
-
 	var scalar = 0.0001 * fontSize;
-
-	//var scalarY = 0.015;
-
-	//var distance = getDistance(elementX, elementY, lightX, lightY) * scalar;
-	//var angle = getAngle(elementX, elementY, lightX, lightY);
+	var shineScaler = .004*fontSize;
 
 	var xShadow = scalar*(elementX - lightX);
 	var yShadow = scalar*(elementY - lightY);
 
+	var xShineCenterRelative = shineScaler*(lightX-elementX );
+	var yShineCenterRelative = shineScaler*(lightY-elementY );
+	var xShine = elementX - rect.left + xShineCenterRelative;
+	var yShine = elementY - rect.top + yShineCenterRelative;
+
+	var alpha = (lightRatio*.6) + .4;
 	if( element instanceof HTMLImageElement ) {
-		element.style.boxShadow = xShadow*5 + "px " + yShadow*5 + "px 20px #0B042E"
+		element.style.boxShadow = xShadow*7 + "px " + yShadow*7 + "px 15px rgba(11,4,46,"+alpha+')'
 	}
 	else {
-		element.style.textShadow = xShadow + "px " + yShadow + "px " + (scalar*800) +  "px #0B042E"
+		console.log("running...: " + lightX);
+
+		element.style.background = 'radial-gradient(at ' + xShine + 'px ' + yShine + 'px, #fffcd3 0%, #BC7248 80%)';
+		element.style.webkitBackgroundClip = 'text';
+		element.style.webkitTextFillColor = 'transparent';
+
+		//element.style.textShadow = xShadow + "px " + yShadow + "px " + (scalar*800) + "px rgba(11,4,46,"+alpha+')';
+		element.style.webkitFilter = 'drop-shadow(' + xShadow + "px " + yShadow + "px " + (scalar*800) + "px rgba(11,4,46,"+alpha+'))';
+		element.style.filter = 'drop-shadow(' + xShadow + "px " + yShadow + "px " + (scalar*800) + "px rgba(11,4,46,"+alpha+'))';
 	}
+}
+
+function getLightRatio(swingWidth, horizontalPx) {
+	var posHorizontalPx = horizontalPx + swingWidth;
+	var centerPoint = swingWidth+swingWidth/2;
+	return 1 - (Math.abs(centerPoint - posHorizontalPx)/centerPoint);
 }
 
 function getDistance(x1, y1, x2, y2) {
