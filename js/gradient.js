@@ -16,8 +16,8 @@ var circleBack = false;
 var circleRadius = swingWidth+(swingWidth/2);
 var angle = 0;
 
-console.log("inner height: " + window.innerHeight/2);
-console.log("gradY: " + gradY);
+//console.log("inner height: " + window.innerHeight/2);
+//console.log("gradY: " + gradY);
 
 elements = document.getElementsByClassName("shadowAnimated");
 
@@ -76,13 +76,13 @@ function addDirectionalShadow(element, lightX, lightY, lightRatio) {
 	var yShine = elementY - rect.top + yShineCenterRelative;
 
 	var alpha = (lightRatio*.6) + .4;
-	if( element instanceof HTMLImageElement ) {
+	if( element instanceof HTMLImageElement || element.id == "imgContainer" ) {
 		element.style.boxShadow = xShadow*7 + "px " + yShadow*7 + "px 15px rgba(11,4,46,"+alpha+')'
 	}
 	else {
-		console.log("running...: " + lightX);
+		//console.log("running...: " + lightX);
 
-		element.style.background = 'radial-gradient(at ' + xShine + 'px ' + yShine + 'px, #fffcd3 0%, #BC7248 80%)';
+		element.style.background = 'radial-gradient(at ' + xShine + 'px ' + yShine + 'px, #FEFBD2 30%, #BC7248 80%)';
 		element.style.webkitBackgroundClip = 'text';
 		element.style.webkitTextFillColor = 'transparent';
 
