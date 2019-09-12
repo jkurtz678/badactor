@@ -29,6 +29,7 @@ $(document).on('click', '#return', function() {
   		var e1 = document.querySelector("#player");
   		e1.parentNode.replaceChild(oldContent, e1);
   		current_lyrics = null;
+  		loaded_song = null;
   	});
 });
 
@@ -87,13 +88,13 @@ $(document).ready(function(){
   						+ "<div id='playerContainer' class='animated fadeIn slow'><div class='row'>"
   						+ "<div id='songNames' class='col-sm-6'>"
   						+ "<span><a id='momentsgone' class='' href='#'><i id='momentsgoneBtn' class='playSong faFree brands fas fa-play-circle shadowAnimated'></i></a>"
-  						+ "<p class='songName stretched shadowAnimated'>moment's gone</p></span></br>"
+  						+ "<p id='momentsgoneTitle' class='songName stretched shadowAnimated'>moment's gone</p></span></br>"
   						+ "<span><a id='sleep' class='' href='#'><i id='sleepBtn' class='playSong faFree brands fas fa-play-circle shadowAnimated'></i></a>"
-  						+ "<p class='songName stretched shadowAnimated'>sleep</p></span></br>"
+  						+ "<p id='sleepTitle' class='songName stretched shadowAnimated'>sleep</p></span></br>"
   						+ "<span><a id='offbalance' class='' href='#'><i id='offbalanceBtn'class='playSong faFree brands fas fa-play-circle shadowAnimated'></i></a>"
-  						+ "<p class='songName stretched shadowAnimated'>off balance</p></span></br>"
+  						+ "<p id='offbalanceTitle' class='songName stretched shadowAnimated'>off balance</p></span></br>"
   						+ "<span><a id='frominside' class='' href='#'><i id='frominsideBtn' class='playSong faFree brands fas fa-play-circle shadowAnimated'></i></a>"
-  						+ "<p class='songName stretched shadowAnimated'>from inside</p></span></br>"
+  						+ "<p id='frominsideTitle' class='songName stretched shadowAnimated'>from inside</p></span></br>"
   						+ "</div>"
   						+ "<div class='col-sm-6'>"
   						+ "<img id='momentsgoneimage' class='shadowAnimated animated fadeIn slow' src='images/badactormomentsgone.jpg' alt='momentsgone'>"

@@ -1,14 +1,29 @@
 var song_names = ['momentsgone','sleep','offbalance','frominside'];
 var playBtnClass = 'playSong faFree brands fas fa-play-circle shadowAnimated'
 var pauseBtnClass = 'playSong faFree brands fas fa-pause-circle shadowAnimated'
+var loaded_song = null;
 
 function playSong(songNum){
+  var btn = document.getElementById(song_names[songNum]+"Btn");
   var player = document.getElementById("audioPlayer");
-  loadSong(songNum);
-  player.load()
-  player.play();
-  updateUI(songNum);
-  updateProgress(player);
+  var source = document.getElementById("audioSource");
+  if(btn.classList.contains("fa-pause-circle")) {
+    player.pause();
+    btn.className = playBtnClass;
+  }
+  else if (loaded_song == songNum) {
+    player.play();
+    btn.className = pauseBtnClass;
+    updateProgress(player);
+  }
+  else {
+    loaded_song = songNum
+    loadSong(songNum);
+    player.load();
+    player.play();
+    updateUI(songNum);
+    updateProgress(player);
+  }
 }
 
 function updateUI(songNum) {
@@ -16,14 +31,19 @@ function updateUI(songNum) {
   for(i = 0; i < song_names.length; i++) {
     var btn = document.getElementById(song_names[i]+"Btn");
     btn.className = playBtnClass;
+    var name = document.getElementById(song_names[i] + "Title");
+    name.style.textShadow = 'none';
   }
 
   var playBtn = document.getElementById(song_names[songNum]+"Btn");
   playBtn.className = pauseBtnClass;
+  var title = document.getElementById(song_names[songNum] + "Title");
+  title.style.textShadow = '0 0 5px #fffcd3';
 }
 
 function loadSong(songNum) {
   var source = document.getElementById("audioSource");
+  
   song_url = "audio/" + song_names[songNum] + ".mp3"
   console.log("playing song: " + song_url);
   source.src = song_url;
