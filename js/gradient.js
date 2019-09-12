@@ -76,7 +76,7 @@ function addDirectionalShadow(element, lightX, lightY, lightRatio) {
 	var yShine = elementY - rect.top + yShineCenterRelative;
 
 	var alpha = (lightRatio*.6) + .4;
-	if( element instanceof HTMLImageElement || element.id == "imgContainer" ) {
+	if( element instanceof HTMLImageElement || element.id == "imgContainer" || element.id == "progressContainer" ) {
 		element.style.boxShadow = xShadow*7 + "px " + yShadow*7 + "px 15px rgba(11,4,46,"+alpha+')'
 	}
 	else {
