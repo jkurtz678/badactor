@@ -1,1 +1,2 @@
 # badactor
+This is a website for the band badactor. The site contains a landing page containing relavent links to streaming platforms and social media. Clicking on the album cover will transition the site to a player page where the band's first EP can be listened to and lyrics can be viewed.
