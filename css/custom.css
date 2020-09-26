@@ -10,13 +10,16 @@ html {
 
 body {
   font-family: "century gothic";
-  background-color: #0B042E;
+  background-color: #0b042e;
   color: #fffcd3;
   position: relative;
+  height: 100%;
 }
 
 main {
   text-align: center;
+  min-height: 100%;
+  margin-bottom: -40px;
 }
 
 img {
@@ -113,7 +116,7 @@ i {
 }
 
 .hiddenAlbumText {
-  background-color: #0B042E;
+  background-color: #0b042e;
   padding: 16px 32px;
 }
 
@@ -126,7 +129,7 @@ i {
   position: relative;
   display: inline-block;
   overflow: hidden;
-  background-color: #0B042E;
+  background-color: #0b042e;
   width: 350px;
   margin: 0 auto;
   margin-bottom: 20px;
@@ -139,11 +142,12 @@ i {
   opacity: 1;
 }
 
-.footer {
+.footer,
+.push {
+  height: 40px;
   text-align: center;
-  bottom: 0;
-  padding-top: 10px;
-  padding-bottom: 20px;
+  /*  padding-top: 10px;
+  padding-bottom: 20px; */
   letter-spacing: -1px;
   max-width: 190px;
   margin-right: auto;
@@ -219,7 +223,7 @@ i {
   width: 150px;
   margin-top: 10px;
   height: 15px;
-  background-color: #0B042E;
+  background-color: #0b042e;
 }
 #progressBar {
   width: 1%;

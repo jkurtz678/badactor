@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-146711962-1"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
 
     gtag('config', 'UA-146711962-1');
@@ -14,64 +15,70 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>badactor</title>
-  <link rel="icon" href="favicon.ico"/>
+  <link rel="icon" href="favicon.ico" />
 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <!--<link rel="stylesheet" href="bootstrap.min.css">-->
   <link href="css/custom.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
 
-<!--[if lt IE 9]>
+  <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-  </head>
-  <body>
-    <main id="landing">
-      <div class="container-fluid topbar"> 
-        <div class="row text-center nameContainer">
-          <h1 id="bandname" class="stretched shadowAnimated animated fadeIn slow">badactor<h1>
+</head>
+
+<body>
+  <main id="landing">
+    <div class="container-fluid topbar">
+      <div class="row text-center nameContainer">
+        <h1 id="bandname" class="stretched shadowAnimated animated fadeIn slow">badactor<h1>
+      </div>
+    </div>
+    <div class="container">
+      <div class="col-12 text-center">
+        <h2 id="latestRelease" class="stretched shadowAnimated animated fadeIn delay-1s slow ">latest release</h2>
+      </div>
+      <a class="playBtn" href="#">
+        <div id="imgContainer" class="imgContainer shadowAnimated animated fadeIn delay-1s slow">
+          <img class="albumCover" src="images/badactorquiethours.jpeg" alt="quiethours">
+          <div class="overlay">
+            <i id="playIcon" class="faFree fas fa-play"></i>
           </div>
         </div>
-        <div class="container">
-          <div class="col-12 text-center">
-            <h2 id="latestRelease" class="stretched shadowAnimated animated fadeIn delay-1s slow ">latest release</h2>
-          </div>
-          <a class="playBtn" href="#">
-            <div id="imgContainer" class="imgContainer shadowAnimated animated fadeIn delay-1s slow">
-              <img class="albumCover" src="images/badactormomentsgone.jpg" alt="momentsgone">
-              <div class="overlay">
-                <i id="playIcon" class="faFree fas fa-play"></i>
-              </div>
-            </div>
-          </a>
-          <div>
-            <div class="icons animated fadeIn delay-2s slow">
-              <span>
-                <a class="iconLink" href="https://open.spotify.com/album/3ZMbIeHR72dTvEEt5ux6tb?si=jixWGHiaREeVZQmZM1R1fw" title="Spotify" target="_blank">
-                  <i class="icon faBrand brands fa-spotify shadowAnimated"></i></a>
-                  <a class="iconLink" href="https://music.apple.com/us/album/moments-gone-ep/1462692047" title="AppleMusic" target="_blank">
-                    <i class="icon faBrand brands fa-itunes shadowAnimated"></i></a>
-                    <a class="iconLink" href="https://badactormusic.bandcamp.com/releases" title="Bandcamp" target="_blank">
-                      <i class="icon faBrand brands fa-bandcamp shadowAnimated"></i></a>
-                      <a class="iconLink" href="https://www.youtube.com/channel/UCfIBG7EHi0eQBwoVhPs9vcQ" title="AppleMusic" target="_blank">
-                        <i class="icon faBrand brands fa-youtube shadowAnimated"></i></a>
-                        <a class="iconLink" href="https://www.instagram.com/badactormusic/" title="Instagram" target="_blank">
-                          <i class="icon faBrand brands fa-instagram shadowAnimated"></i></a>
-                          <a href="mailto:badactingmusic@gmail.com" class="iconLink" title="eMail" target="_blank">
-                            <i class="icon faFree far fa-envelope shadowAnimated"></i></a>
-                          </span>
-                        </div>
-                      </div>
-      </main>
-      <div class="footer stretched">
-        <div class="copyright shadowAnimated animated fadeIn delay-2s slow">© badactor. All rights reserved.</div>
+      </a>
+      <div>
+        <div class="icons animated fadeIn delay-2s slow">
+          <span>
+            <a class="iconLink" href="https://open.spotify.com/album/3ZMbIeHR72dTvEEt5ux6tb?si=jixWGHiaREeVZQmZM1R1fw"
+              title="Spotify" target="_blank">
+              <i class="icon faBrand brands fa-spotify shadowAnimated"></i></a>
+            <a class="iconLink" href="https://music.apple.com/us/album/moments-gone-ep/1462692047" title="AppleMusic"
+              target="_blank">
+              <i class="icon faBrand brands fa-itunes shadowAnimated"></i></a>
+            <a class="iconLink" href="https://badactormusic.bandcamp.com/releases" title="Bandcamp" target="_blank">
+              <i class="icon faBrand brands fa-bandcamp shadowAnimated"></i></a>
+            <a class="iconLink" href="https://www.youtube.com/channel/UCfIBG7EHi0eQBwoVhPs9vcQ" title="AppleMusic"
+              target="_blank">
+              <i class="icon faBrand brands fa-youtube shadowAnimated"></i></a>
+            <a class="iconLink" href="https://www.instagram.com/badactormusic/" title="Instagram" target="_blank">
+              <i class="icon faBrand brands fa-instagram shadowAnimated"></i></a>
+            <a href="mailto:badactingmusic@gmail.com" class="iconLink" title="eMail" target="_blank">
+              <i class="icon faFree far fa-envelope shadowAnimated"></i></a>
+          </span>
+        </div>
       </div>
+      <div class="push"></div>
+  </main>
+  <div class="footer stretched">
+    <div class="copyright shadowAnimated animated fadeIn delay-2s slow">© badactor. All rights reserved.</div>
+  </div>
 
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-      <script src="js/bootstrap.min.js"></script>
-      <script src="js/gradient.js"></script>
-      <script src="js/audioPlayer.js"></script>
-      <script src="js/transition.js"></script>
-    </body>
-    </html>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/gradient.js"></script>
+  <script src="js/audioPlayer.js"></script>
+  <script src="js/transition.js"></script>
+</body>
+
+</html>
